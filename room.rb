@@ -1,11 +1,11 @@
-
 class Room
-  attr_accessor :separator 
+  attr_accessor :separator
+
   def initialize
     @sides = 10
     @separator = '. '
   end
-    
+
   def get_room(position, e_position)
     @sides.times do |i|
       if position[0] == i+1

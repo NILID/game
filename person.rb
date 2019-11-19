@@ -5,11 +5,11 @@ class Person
   def initialize
     @position=rand_position
   end
-  
+
   def rand_position
     @position = [rand(1..10),rand(1..10)]
   end
-  
+
   def move(side)
     case side
     when :left
