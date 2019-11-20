@@ -2,18 +2,31 @@ require_relative 'person'
 require 'byebug'
 
 class Enemy < Person
-  def move(position)
-    diff_y = (@position[0] - position[0]).abs
-    diff_x = (@position[1] - position[1]).abs
-#    byebug
-    if diff_y > diff_x
-      @position[0] > position[0] ?
-        (@position[0] -= 1 if position[0] > 1) : (@position[0] +=1 if position[0] < 1)
-    elsif diff_y < diff_x
-      @position[1] > position[1] ?
-        (@position[1] -= 1 if position[1] > 1) : (@position[1] +=1 if position[1] < 1)
+  def move(p_position)
+
+    diff_x = (@position[0] - position[0]).abs
+    diff_y = (@position[1] - position[1]).abs
+
+    if p_position == @position
+      puts 'You win!'
+    elsif p_position[0] > @position[0]  && p_position[1] == @position[1]
+      @position[0] +=1
+    elsif p_position[0] < @position[0]  && p_position[1] == @position[1]
+      @position[0] -=1
+    elsif p_position[0] == @position[0] && p_position[1] >  @position[1]
+      @position[1] +=1
+    elsif p_position[0] == @position[0] && p_position[1] <  @position[1]
+      @position[1] -=1
+    elsif p_position[0] <  @position[0] && p_position[1] <  @position[1]
+      diff_y > diff_x ? (@position[1] -=1) : (@position[0] -=1)
+    elsif p_position[0] <  @position[0] && p_position[1] >  @position[1]
+      diff_y > diff_x ? (@position[1] +=1) : (@position[0] -=1)
+    elsif p_position[0] >  @position[0] && p_position[1] <  @position[1]
+      diff_y > diff_x ? (@position[1] -=1) : (@position[0] +=1)
+    elsif p_position[0] >  @position[0] && p_position[1] >  @position[1]
+      diff_y > diff_x ? (@position[1] +=1) : (@position[0] +=1)
     else
-      puts "you win!"
+      puts "!!!!!!!strange thing!!!!!!!!"
     end
   end
 end

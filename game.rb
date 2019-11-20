@@ -14,14 +14,17 @@ class Game
   def init
     move = :none
 
-    while !(%i[end exit quit].include? move)
+    while @person.position != @enemy.position
+      break if%i[end exit quit].include? move
       print "Your move: "
       move = gets.chomp.to_sym
 
       @person.move(move)
       @enemy.move(@person.position)
+
       @room.get_room(@person.position, @enemy.position)
     end
+    puts 'You died'.blue.on_red.blink
   end
 end
 
