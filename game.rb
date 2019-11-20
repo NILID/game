@@ -18,7 +18,7 @@ class Game
 
     while @person.position != @enemy.position
       break if%i[end exit quit].include? move
-      print "Your move: "
+      print "Your move: (up|down|left|right|exit) "
       move = gets.chomp.to_sym
 
       @person.move(move)

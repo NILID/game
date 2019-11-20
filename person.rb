@@ -20,7 +20,7 @@ class Person
     when :down
       @position[0] += 1 if position[0] < 9
     else
-      puts "no such side ##{side}, try again!"
+      puts "no such side ##{side}, yout step was skipped!"
     end
   end
 end

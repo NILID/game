@@ -11,8 +11,6 @@ class Room
   end
 
   def get_room(position, e_position)
-    puts "your position #{position}"
-    puts "enemy position #{e_position}"
     return 'You Win' if position == e_position
     @sides.times do |i|
       if position[0] == i && position[0] == e_position[0]
