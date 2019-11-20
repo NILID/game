@@ -22,11 +22,11 @@ class Game
       move = gets.chomp.to_sym
 
       @person.move(move)
-      @enemy.move(@person.position)
+      @enemy.follows(@person.position)
 
       @room.get_room(@person.position, @enemy.position)
     end
-    puts 'You died'.blue.on_red.blink
+    puts ' You died '.white.on_red.blink
   end
 end
 
