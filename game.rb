@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require_relative 'room'
 require_relative 'person'
 require_relative 'enemy'
